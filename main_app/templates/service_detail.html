@@ -15,4 +15,18 @@
     <p>{{service.packagename3}} {{service.packageprice3}}</p>
 </div>
 
+{% for review in service.reviews.all %}
+<div>
+    <span>{{forloop.counter}}</span>
+    <span>{{review.name}}</span>
+    <span>{{review.rating}}</span>
+    <span>{{review.comment}}</span>
+</div>
+{% empty %}
+<div>
+  <p>No Reviews Yet</p>  
+</div>
+
+{% endfor %}
+
 {% endblock %}
