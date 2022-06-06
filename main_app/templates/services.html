@@ -7,7 +7,7 @@
 <h1>Services</h1>
 <div class="container">
     {% for service in services %}
-<a href="">
+<a href="{% url 'service_details' service.pk %}">
     <div class="row g-6">
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card">
@@ -20,6 +20,6 @@
         </div>
     </div>
 </a>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
