@@ -28,8 +28,9 @@ class ServiceList(TemplateView):
         context["services"] = Service.objects.all()
         return context
         
-
 class ServiceDetail(DetailView):
     model = Service
     template_name = "service_detail.html"
 
+
+   

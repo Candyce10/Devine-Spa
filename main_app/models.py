@@ -17,4 +17,7 @@ class Service(models.Model):
     class Meta:
         ordering = ['name']
   
-  
+class Review(models.Model):
+    name = models.CharField(max_length=100)
+    rating = models.CharField(max_length=100)
+    comment = models.TextField(max_length=500)
