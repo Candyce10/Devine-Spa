@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views import View
 from django.http import HttpResponse
-from .models import Service
+from .models import Service, Review
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 
 class Home(View):
     def get(self, request):
-        return HttpResponse("Devine Spa")
+        return HttpResponse("Divine Spa")
 
 class About(View):
     def get(self, request):
@@ -31,6 +31,15 @@ class ServiceList(TemplateView):
 class ServiceDetail(DetailView):
     model = Service
     template_name = "service_detail.html"
+
+class ReviewCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        rating = request.POST.get("rating")
+        comment = request.POST.get("comment")
+        service = Service.objects.get(pk=pk)
+        Review.objects.create(name=name, rating=rating, comment=comment)
+        return redirect('artist_detail', pk=pk)
 
 
    
