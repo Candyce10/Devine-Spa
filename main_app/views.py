@@ -25,11 +25,11 @@ class ServiceList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["services"] = services
+        context["services"] = Service.objects.all()
         return context
         
 
 class ServiceDetail(DetailView):
     model = Service
-    template_name = "service_details.html"
+    template_name = "service_detail.html"
 
