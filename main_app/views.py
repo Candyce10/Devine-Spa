@@ -33,12 +33,13 @@ class ServiceDetail(DetailView):
     template_name = "service_detail.html"
 
 class ReviewCreate(View):
+    
     def post(self, request, pk):
         name = request.POST.get("name")
         rating = request.POST.get("rating")
         comment = request.POST.get("comment")
         service = Service.objects.get(pk=pk)
-        Review.objects.create(name=name, rating=rating, comment=comment)
+        Review.objects.create(name=name, rating=rating, comment=comment, service=service)
         return redirect('artist_detail', pk=pk)
 
 

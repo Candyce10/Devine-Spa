@@ -28,6 +28,42 @@
   <p>No Reviews Yet</p>  
 </div>
 
+<form action="{% url 'review_create' service.pk %}" method ="POST">
+    {% csrf_token %}
+    <div>
+        <input
+            class="input"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+        />
+    </div>
+    <div>
+        <input
+            class="input"
+            type="number"
+            name="Rating"
+            placeholder="Rating"
+            max="5"
+            min="1"
+            required
+        />
+    </div>
+    <div>
+        <input
+            class="input"
+            type="text"
+            name="comment"
+            placeholder="Comment"
+            required
+        />
+    </div>
+    <div>
+        <input type="submit" value="Add Review" />
+    </div>
+</form>
+
 {% endfor %}
 
 {% endblock %}
