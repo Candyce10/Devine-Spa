@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
+from .models import Service
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 
@@ -18,24 +19,7 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
-class Service:
-    def __init__(self, name, image, description, packagename1, packageprice1, packagename2, packageprice2, packagename3, packageprice3):
-        self.name = name
-        self.image = image
-        self.description = description
-        self.packagename1 = packagename1
-        self.packageprice1 = packageprice1
-        self.packagename2 = packagename2
-        self.packageprice2 = packageprice2
-        self.packagename3 = packagename3
-        self.packageprice3 = packageprice3
 
-services = [
-    Service("Massage", "https://media.allure.com/photos/5ee11520a9ba330008e32528/4:3/w_2664,h_1998,c_limit/massage.jpg", "nice massage", "30 Minutes", "$40", "60minutes", "$50", "90 minutes", "$60"),
-    Service("Facials", "https://media.allure.com/photos/5ee11520a9ba330008e32528/4:3/w_2664,h_1998,c_limit/massage.jpg", "fresh facial", "30 Minutes", "$40", "60minutes", "$50", "90 minutes", "$60"),
-    Service("Packages", "https://media.allure.com/photos/5ee11520a9ba330008e32528/4:3/w_2664,h_1998,c_limit/massage.jpg", "cool package", "30 Minutes", "$40", "60minutes", "$50", "90 minutes", "$60")
-]
-       
 class ServiceList(TemplateView):
     template_name = "services.html"
 
