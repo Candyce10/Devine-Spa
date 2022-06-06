@@ -17,4 +17,4 @@ class Service(models.Model):
     class Meta:
         ordering = ['name']
   
-  v
+  
