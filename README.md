@@ -1,4 +1,4 @@
-# Devine-Spa
+# Divine-Spa
 A business page for a spa where customers can see services and book appointments
 Initial Wireframes:
 
