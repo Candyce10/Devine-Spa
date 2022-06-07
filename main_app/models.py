@@ -26,7 +26,7 @@ class Review(models.Model):
     def __str__(self):
         return self.name
 
-class AppointmentCreate(models.Model):
+class Appointment(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
