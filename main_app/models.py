@@ -19,7 +19,7 @@ class Service(models.Model):
   
 class Review(models.Model):
     name = models.CharField(max_length=100)
-    rating = models.CharField(max_length=100)
+    rating = models.IntegerField(default=5)
     comment = models.TextField(max_length=500)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="reviews")
 

@@ -40,7 +40,7 @@ class ReviewCreate(View):
         comment = request.POST.get("comment")
         service = Service.objects.get(pk=pk)
         Review.objects.create(name=name, rating=rating, comment=comment, service=service)
-        return redirect('artist_detail', pk=pk)
+        return redirect('service_detail', pk=pk)
 
 
    

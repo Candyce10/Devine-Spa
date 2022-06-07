@@ -3,11 +3,11 @@
 {% block title %} {{service.name}}{% endblock %}
 
 <div>
-    <h1>{{service.name}}</h1>
+    <h1>{{service.name}} Services</h1>
 </div>
 
 <div>
-    <img src="{{service.img}}" alt="{{artist.name}}" />
+    <img src="{{service.img}}" alt="{{service.name}}" />
 </div>
 <div>
     <p>{{service.description}}</p>
@@ -27,6 +27,7 @@
 <div>
   <p>No Reviews Yet</p>  
 </div>
+{% endfor %}
 
 <form action="{% url 'review_create' service.pk %}" method ="POST">
     {% csrf_token %}
@@ -43,7 +44,7 @@
         <input
             class="input"
             type="number"
-            name="Rating"
+            name="rating"
             placeholder="Rating"
             max="5"
             min="1"
@@ -55,7 +56,7 @@
             class="input"
             type="text"
             name="comment"
-            placeholder="Comment"
+            placeholder="Tell us about your experience..."
             required
         />
     </div>
@@ -64,6 +65,5 @@
     </div>
 </form>
 
-{% endfor %}
 
 {% endblock %}
