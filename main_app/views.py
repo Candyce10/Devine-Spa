@@ -3,6 +3,7 @@ from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Service, Review, Appointment
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 
 class Home(View):
@@ -32,26 +33,6 @@ class ServiceDetail(DetailView):
     model = Service
     template_name = "service_detail.html"
 
-class ReviewCreate(View):
-    def get(self, request):
-        return HttpResponse("All Reviews")
-
-class ReviewList(TemplateView):
-    template_name = "reviews.html"
-
-
-class ReviewCreate(View):
-    
-    def post(self, request):
-        name = request.POST.get("name")
-        rating = request.POST.get("rating")
-        comment = request.POST.get("comment")
-        review = Review.objects.create(name=name, rating=rating, comment=comment)
-
-        review.save()
-
-        return redirect('reviews')
-
 class AppointmentPage(View):
      def get(self, request):
         return HttpResponse("Book Appointment")
@@ -73,4 +54,23 @@ class AppointmentCreate(View):
 
 class ConfirmationPage(TemplateView):
     template_name = "confirmation.html"
+
+
+class ReviewList(TemplateView):
+    template_name = "reviews.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["reviews"] = Review.objects.all()
+        return context
+
+
+class ReviewCreate(CreateView):
+    model = Review
+    fields = ['name', 'rating', 'comment']
+    template_name = "review_create.html"
+    success_url = "/reviews/"
+  
+
+
 
