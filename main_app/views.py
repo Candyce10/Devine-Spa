@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.views import View
 from django.http import HttpResponse
-from .models import Service, Review
+from .models import Service, Review, AppointmentCreate
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 
@@ -49,3 +49,17 @@ class Appointment(View):
 
 class Appointment(TemplateView):
     template_name = "appointment.html"
+
+class AppointmentCreate(View):
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        number = request.POST.get("number")
+
+        AppointmentCreate.create(name=name, email=email, number=number)
+        return redirect('confirmation')
+
+
+class ConfirmationPage(TemplateView):
+    template_name = "confirmation.html"
+

@@ -24,4 +24,12 @@ class Review(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="reviews")
 
     def __str__(self):
-        return self.name   
+        return self.name
+
+class AppointmentCreate(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=150)
+    number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.name
