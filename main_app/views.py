@@ -43,4 +43,9 @@ class ReviewCreate(View):
         return redirect('service_detail', pk=pk)
 
 
-   
+class Appointment(View):
+     def get(self, request):
+        return HttpResponse("Book Appointment")
+
+class Appointment(TemplateView):
+    template_name = "appointment.html"
