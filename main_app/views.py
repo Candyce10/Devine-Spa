@@ -33,15 +33,24 @@ class ServiceDetail(DetailView):
     template_name = "service_detail.html"
 
 class ReviewCreate(View):
+    def get(self, request):
+        return HttpResponse("All Reviews")
+
+class ReviewList(TemplateView):
+    template_name = "reviews.html"
+
+
+class ReviewCreate(View):
     
-    def post(self, request, pk):
+    def post(self, request):
         name = request.POST.get("name")
         rating = request.POST.get("rating")
         comment = request.POST.get("comment")
-        service = Service.objects.get(pk=pk)
-        Review.objects.create(name=name, rating=rating, comment=comment, service=service)
-        return redirect('service_detail', pk=pk)
+        review = Review.objects.create(name=name, rating=rating, comment=comment)
 
+        review.save()
+
+        return redirect('reviews')
 
 class AppointmentPage(View):
      def get(self, request):

@@ -21,7 +21,7 @@ class Review(models.Model):
     name = models.CharField(max_length=100)
     rating = models.IntegerField(default=5)
     comment = models.TextField(max_length=500)
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="reviews")
+
 
     def __str__(self):
         return self.name

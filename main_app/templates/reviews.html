@@ -1,7 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<h1>Leave a Review</h1>
+<h1>Leave a Review</h1>
+<h1>Leave a Review</h1>
+<h1>Leave a Review</h1>
+<h1>Leave a Review</h1>
 <div>
-    
+    <form action="{% url 'review_create' %}" method ="POST">
+        {% csrf_token %}
+        <div>
+            <input
+                class="input"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+            />
+        </div>
+        <div>
+            <input
+                class="input"
+                type="number"
+                name="rating"
+                placeholder="Rating"
+                max="5"
+                min="1"
+                required
+            />
+        </div>
+        <div>
+            <input
+                class="input"
+                type="text"
+                name="comment"
+                placeholder="Tell us about your experience..."
+                required
+            />
+        </div>
+        <div>
+            <input type="submit" value="Add Review" />
+        </div>
+    </form>
 </div>
+{% for review in review.reviews.all %}
+<div>
+    <span>{{forloop.counter}}</span>
+    <span>{{review.name}}</span>
+    <span>{{review.rating}}</span>
+    <span>{{review.comment}}</span>
+</div>
+{% empty %}
+<div>
+  <p>No Reviews Yet</p>  
+</div>
+{% endfor %}
+
 {% endblock %}
