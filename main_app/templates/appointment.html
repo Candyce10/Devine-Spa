@@ -4,4 +4,40 @@
 
 <h1>Appointments</h1>
 
+<form action="{% url 'confirmation' %}" method="POST">
+
+    <div>
+        <input
+            class="input"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+        />
+    </div>
+    <div>
+        <input
+            class="input"
+            type="text"
+            name="email"
+            placeholder="Email"
+            required
+        />
+    </div>
+    <div>
+        <input
+            class="input"
+            type="text"
+            name="number"
+            placeholder="Number"
+            required
+        />
+    </div>
+    <div>
+        <input type="submit" value="Confirm Appointment" />
+    </div>
+
+</form>
+
+
 {% endblock %} 
