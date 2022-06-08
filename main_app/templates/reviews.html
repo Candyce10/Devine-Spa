@@ -10,8 +10,9 @@
 <div>
     {% for review in reviews %}
     <p>{{review.name}}</p>
-    <p>{{review.rating}}</p>
-    <p>{{review.comment}}</p>
+    <p>Service: {{review.service}}</p>
+    <p>Rating: {{review.rating}}</p>
+    <p>Comment: {{review.comment}}</p>
     {% endfor %}
 </div>
 
