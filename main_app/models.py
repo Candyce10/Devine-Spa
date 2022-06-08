@@ -28,6 +28,8 @@ class Appointment(models.Model):
         return self.name
 
 
+
+
 SERVICE_CHOICES =(
     ('MASSAGE', 'massage'),
     ('FACIAL', 'facial'),
@@ -44,3 +46,12 @@ class Review(models.Model):
     def __str__(self):
         return self.name
 
+
+class Contact(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email

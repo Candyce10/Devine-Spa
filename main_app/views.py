@@ -40,6 +40,7 @@ class AppointmentPage(View):
 
 class AppointmentPage(TemplateView):
     template_name = "appointment.html"
+    
 
 class AppointmentCreate(View):
     def post(self, request):
@@ -53,6 +54,12 @@ class AppointmentCreate(View):
 
 class ConfirmationPage(TemplateView):
     template_name = "confirmation.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["appointments"] = Appointment.objects.all()[:1]
+        return context
+
 
 
 class ReviewList(TemplateView):
