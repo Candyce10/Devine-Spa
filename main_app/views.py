@@ -31,12 +31,9 @@ class ServiceList(TemplateView):
         return context
         
 class ServiceDetail(DetailView):
+    model = Service
     template_name = "service_detail.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["service_detail"] = ServiceDetails.objects.all()
-        return context
-        
+   
 
 class AppointmentPage(View):
      def get(self, request):

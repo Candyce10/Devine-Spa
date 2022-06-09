@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-{% block title %} {{service.name}}{% endblock %}
+{% block title %} {% endblock %}
+
+<h1>{{service.name}}</h1>
+<h1>{{service.name}}</h1>
+<h1>{{service.name}}</h1>
+<h1>{{service.name}}</h1>
 
 
-
-
+{% for detail in service.details.all %}
 <div>
-    <!-- <h1>{{service.name}} Services</h1> -->
+    <h1>{{detail.name}} Services</h1>
 </div>
 
 <div>
-    <img src="{{service_detail.img}}" alt="{{service_detail.name}}" />
+    <img src="{{detail.img}}" alt="{{detail.name}}" />
 </div>
-<!-- <div>
-    <p>{{service.description}}</p>
-    <p>{{service.packagename1}} {{service.packageprice1}}</p>
-    <p>{{service.packagename2}} {{service.packageprice2}}</p>
-    <p>{{service.packagename3}} {{service.packageprice3}}</p>
-</div> -->
 
 
+{% endfor %}
 <div>
 </div>
 
