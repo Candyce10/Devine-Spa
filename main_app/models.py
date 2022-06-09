@@ -40,6 +40,7 @@ SERVICE_CHOICES =(
   
 class Appointment(models.Model):
     name = models.CharField(max_length=100)
+    service = models.CharField(max_length=34, choices=SERVICE_CHOICES)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
     date = models.DateField()
@@ -50,7 +51,7 @@ class Appointment(models.Model):
      
 class Review(models.Model):
     name = models.CharField(max_length=100)
-    service = models.CharField(max_length=34, choices=SERVICE_CHOICES, default='massage')
+    service = models.CharField(max_length=34, choices=SERVICE_CHOICES)
     rating = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(max_length=500)
     

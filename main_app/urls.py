@@ -8,8 +8,7 @@ urlpatterns = [
     path('services/<int:pk>/', views.ServiceDetail.as_view(), name="service_detail"),
     path('reviews/', views.ReviewList.as_view(), name="review_list"),
     path('reviews/new', views.ReviewCreate.as_view(), name="review_create"),
-    path('book_appointment/', views.AppointmentPage.as_view(), name="appointment"),
-    path('book_appointment/new', views.AppointmentCreate.as_view(), name="appointment_create"),
+    path('book_appointment/', views.AppointmentCreate.as_view(), name="appointment"),
     path('book_appointment/confirmation/', views.ConfirmationPage.as_view(), name="confirmation"),
 
 ]

@@ -5,7 +5,7 @@ from .models import Service, Review, Appointment, ServiceDetails
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
-from .forms import ReviewForm
+from .forms import ReviewForm, AppointmentForm
 
 class Home(View):
     def get(self, request):
@@ -33,27 +33,6 @@ class ServiceList(TemplateView):
 class ServiceDetail(DetailView):
     model = Service
     template_name = "service_detail.html"
-   
-
-class AppointmentPage(View):
-     def get(self, request):
-        return HttpResponse("Book Appointment")
-
-class AppointmentPage(TemplateView):
-    template_name = "appointment.html"
-    
-
-class AppointmentCreate(View):
-    def post(self, request):
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        number = request.POST.get("number")
-        date = request.POST.get("date")
-        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date)
-        appointment.save()
-        return HttpResponseRedirect('confirmation')
-
-
 
 
 class ConfirmationPage(TemplateView):
@@ -63,7 +42,6 @@ class ConfirmationPage(TemplateView):
         context = super().get_context_data(**kwargs)
         context["appointments"] = Appointment.objects.all()
         return context
-
 
 
 class ReviewList(TemplateView):
@@ -82,5 +60,11 @@ class ReviewCreate(CreateView):
     success_url = "/reviews/"
   
 
+
+class AppointmentCreate(CreateView):
+    model = Appointment
+    form_class = AppointmentForm
+    template_name = "appointment_create.html"
+    success_url = "/confirmation/"
 
 
