@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-{% block title %} {% endblock %}
+{% block title %} {{service.name}}{% endblock %}
 
-<h1>{{service.name}}</h1>
-<h1>{{service.name}}</h1>
-<h1>{{service.name}}</h1>
-<h1>{{service.name}}</h1>
+<h1></h1>
+<h1>{{service.name}} Services</h1>
+
 
 
 {% for detail in service.details.all %}
-<div>
-    <h1>{{detail.name}} Services</h1>
-</div>
 
-<div>
-    <img src="{{detail.img}}" alt="{{detail.name}}" />
+
+<div class="row g-0 bg-light position-relative">
+    <div class="col-md-6 mb-md-0 p-md-4">
+        <img src="{{detail.img}}" class="w-100" alt="{{detail.name}}">
+    </div>
+    <div class="col-md-6 p-4 ps-md-0">
+        <h5 class="mt-0">{{detail.name}}</h5>
+        <p>{{detail.description}}</p>
+        <p class="text-end fw-semibold">{{detail.price}}</p>
+        <a href="#" class="btn btn-primary stretched-link">Add to Cart</a>
+    </div>
 </div>
+<br>
 
 
 {% endfor %}
-<div>
-</div>
-
-
 
 
 {% endblock %}
