@@ -2,31 +2,26 @@
 {% block content %}
 {% block title %} {{service.name}}{% endblock %}
 
+
+
+
 <div>
-    <h1>{{service.name}} Services</h1>
+    <!-- <h1>{{service.name}} Services</h1> -->
 </div>
 
 <div>
-    <img src="{{service.img}}" alt="{{service.name}}" />
+    <img src="{{service_detail.img}}" alt="{{service_detail.name}}" />
 </div>
-<div>
+<!-- <div>
     <p>{{service.description}}</p>
     <p>{{service.packagename1}} {{service.packageprice1}}</p>
     <p>{{service.packagename2}} {{service.packageprice2}}</p>
     <p>{{service.packagename3}} {{service.packageprice3}}</p>
-</div>
+</div> -->
 
-{% for review in service.reviews.all %}
-<div>
-    <span>{{forloop.counter}}</span>
-    <span>{{review.name}}</span>
-    <span>{{review.rating}}</span>
-    <span>{{review.comment}}</span>
-</div>
-{% empty %}
+
 <div>
 </div>
-{% endfor %}
 
 
 
