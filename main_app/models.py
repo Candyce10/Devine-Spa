@@ -21,30 +21,37 @@ class ServiceDetails(models.Model):
     def __str__(self):
         return self.name
 
-   
-  
 
+
+SERVICE_CHOICES =(
+    ('PERFECT DAYS', 'Perfect Days'),
+    ('ROYAL STONE', 'Royal Stone'),
+    ('CLASSIC TREATMENT', 'Classic Treatment'),
+    ('GROWTH FACTOR FACIAL','Growth Factor Facial'),
+    ('VITAMIN C', 'Vitamin C'),
+    ('DIAMOND BRIGHTENING FACIAL', 'Diamond Brightening Facial'),
+    ('POWER GLO FACIAL', 'Power Glo Facial'),
+    ('PINK HIMALAYAN SALT STONE MASSAGE', 'Pink Himalayan Salt Stone Massage'),
+    ('PRENATAL MASSAGE', 'Prenatal Massage'),
+    ('REFLEXOLOGY', 'Reflexology'),
+    ('DEEP TISSUE MASSAGE', 'Deep Tissue Massage')
+
+)
+  
 class Appointment(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
+    service = models.CharField(max_length=34, choices=SERVICE_CHOICES, default='massage')
     date = models.DateField()
 
     def __str__(self):
         return self.name
 
-
-
-
-SERVICE_CHOICES =(
-    ('MASSAGE', 'massage'),
-    ('FACIAL', 'facial'),
-    ('PACKAGE', 'package'),
-)
      
 class Review(models.Model):
     name = models.CharField(max_length=100)
-    service = models.CharField(max_length=7, choices=SERVICE_CHOICES, default='massage')
+    service = models.CharField(max_length=34, choices=SERVICE_CHOICES, default='massage')
     rating = models.PositiveIntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField(max_length=500)
     

@@ -48,8 +48,9 @@ class AppointmentCreate(View):
         name = request.POST.get("name")
         email = request.POST.get("email")
         number = request.POST.get("number")
+        service = request.POST.get("service")
         date = request.POST.get("date")
-        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date)
+        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date, service=service)
         appointment.save()
         return HttpResponseRedirect('confirmation')
 
