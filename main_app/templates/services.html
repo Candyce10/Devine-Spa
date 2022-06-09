@@ -5,21 +5,17 @@
 {% block content %}
 
 <h1>Services</h1>
-<div class="container">
     {% for service in services %}
-<a href="{% url 'service_detail' service.pk %}">
-    <div class="row g-6">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-                <img src="{{service.img}}" alt="{{service.name}}" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">{{service.name}}</h5>
-                    <p class="card-text">{{service.description}}</p>
-                </div>
-            </div>
+ 
+
+    <div class="card" style="width: 18rem;">
+        <img src="{{service.img}}" class="card-img-top" alt="{{service.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{service.name}}</h5>
+          <p class="card-text">{{service.description}}</p>
+          <a href="{% url 'service_detail' service.pk %}"class="btn btn-primary">Details</a>
         </div>
-    </div>
-</a>
+      </div>
+
     {% endfor %}
-</div>
 {% endblock %}
