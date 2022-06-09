@@ -42,7 +42,6 @@ class Appointment(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
-    service = models.CharField(max_length=34, choices=SERVICE_CHOICES, default='massage')
     date = models.DateField()
 
     def __str__(self):

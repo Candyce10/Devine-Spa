@@ -48,9 +48,8 @@ class AppointmentCreate(View):
         name = request.POST.get("name")
         email = request.POST.get("email")
         number = request.POST.get("number")
-        service = request.POST.get("service")
         date = request.POST.get("date")
-        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date, service=service)
+        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date)
         appointment.save()
         return HttpResponseRedirect('confirmation')
 
@@ -62,11 +61,7 @@ class ConfirmationPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        id = self.request.GET.get("id")
-        if id != None:
-            context["appointment"] = Appointment.objects.filter(name__icontains=id)
-        else:
-            context["appointment"] = Appointment.objects.all()
+        context["appointments"] = Appointment.objects.all()
         return context
 
 
