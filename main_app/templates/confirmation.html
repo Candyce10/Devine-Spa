@@ -1,10 +1,12 @@
 {% extends 'base.html' %}{% block content %}
 
-
-{% for appointment in appointments %}
 <h1>Appointment Received</h1>
+{% for appointment in appointments %}
 
+{% if forloop.last %}
 <h1>Thank you {{appointment.name}}!!</h1>
+
+{% endif %}
 {% endfor %}
 
 
