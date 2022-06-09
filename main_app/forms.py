@@ -1,5 +1,4 @@
 from django.forms import ModelForm
-from d
 
 from .models import Review, Appointment
 
