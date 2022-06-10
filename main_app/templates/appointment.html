@@ -4,31 +4,33 @@
 
 <h1>Make an Appointment</h1>
 
+<div class="apptdiv">
 <form action="{% url 'appointment_create' %}" method="POST">
     {% csrf_token %}
 
     <div>
-        <label>First Name
+        <label>First Name </label>
+        <br/>
             <input
                 class="input"
                 type="text"
                 name="fname"
                 required
             />
-        </label>
     </div>
     <div>
-        <label>Last Name
+        <label>Last Name</label>
+        <br/>
             <input
                 class="input"
                 type="text"
                 name="lname"
                 required
             />
-        </label>
     </div>
     <div>
         <label>Service
+            <br/>
             <select name = "service" size="1">
                 <option value="Perfect Days">Perfect Days</option>
                 <option value="Royal Stone">Royal Stone</option>
@@ -37,34 +39,36 @@
                 <option value="vitamin C">Vitamin C</option>
                 <option value="Diamond Brightening facial">Diamond Brightening Facial</option>
                 <option value="Power Glo Facial">Power Glo Facial</option>
-                <option value="Pink Himalayan Salt Stone massage">Pink Himalayan Salt Stone Massage</option>
+                <option value="Pink Himalayan Salt Stone Massage">Pink Himalayan Salt Stone Massage</option>
                 <option value="Prenatal Massage">Prenatal Massage'</option>
                 <option value="Reflexology">Reflexology</option>
                 <option value="Deep Tissue assage">Deep Tissue Massage</option>
         </select>
     </div>
     <div>
-        <label>Email
+        <label>Email</label>
+        <br/>
             <input
                 class="input"
                 type="text"
                 name="email"
                 required
             />
-        </label>
     </div>
     <div>
-        <label>Phone Number
+        <label>Phone Number </label>
+        <br/>
             <input
                 class="input"
                 type="text"
                 name="number"
                 required
             />
-        </label>
+       <br/>
     </div>
     <div>
-        <label>Date
+        <label>Date</label>
+        <br/>
             <input
                 id="datefield"
                 class="input"
@@ -74,10 +78,10 @@
                 onfocus="this.min=new Date().toISOString().split('T')[0]"
                 required
             />
-        </label>
     </div>
     <div>
         <label>Time
+            <br/>
             <select name = "time" size="1">
                 <option value="9:30am">9:30am</option>
                 <option value="10:00am">10:00am</option>
@@ -101,6 +105,7 @@
     </div>
 
 </form>
+</div>
 
 
 {% endblock %} 

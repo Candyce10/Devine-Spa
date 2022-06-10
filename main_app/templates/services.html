@@ -8,18 +8,17 @@
 <div class="gallery d-md-flex flex-wrap justify-content-center">
 
     {% for service in services %}
- 
 
-    <div class="card m-2" style="width: 18rem;">
-        <img src="{{service.img}}" class="card-img-top" alt="{{service.name}}">
+    <div class="test card m-2" style="width: 18rem;">
+        <img src="{{service.img}}" class="serviceimg card-img-top" alt="{{service.name}}">
         <div class="card-body">
           <h5 class="card-title">{{service.name}}</h5>
           <p class="card-text">{{service.description}}</p>
-          <a href="{% url 'service_detail' service.pk %}"class="btn btn-primary">Details</a>
+            <div class="detailbtn">
+              <a href="{% url 'service_detail' service.pk %}"class="btn btn-primary">Details</a>
+            </div>
         </div>
       </div>
-
-    
 
       <br>
     {% endfor %}

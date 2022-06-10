@@ -1,0 +1,22 @@
+.serviceimg{
+    height: 20vw;
+}
+
+.detailbtn{
+    display: flex;
+}
+
+.test{
+    height: 40vw;
+    max-height: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.appt{
+    margin-top: 10vh;
+}
+
+.apptdiv input[type=text]{
+    width: 27vw;
+}

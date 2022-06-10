@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from .forms import ReviewForm
+import urllib
 
 class Home(View):
     def get(self, request):
@@ -35,15 +36,6 @@ class ServiceDetail(DetailView):
     template_name = "service_detail.html"
 
 
-class ConfirmationPage(TemplateView):
-    template_name = "confirmation.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["appointments"] = Appointment.objects.all()
-        return context
-
-
 class ReviewList(TemplateView):
     template_name = "reviews.html"
 
@@ -59,9 +51,11 @@ class ReviewCreate(CreateView):
     template_name = "review_create.html"
     success_url = "/reviews/"
   
+
 class AppointmentPage(View):
      def get(self, request):
         return HttpResponse("Book Appointment")
+
 
 class AppointmentPage(TemplateView):
     template_name = "appointment.html"
@@ -79,6 +73,16 @@ class AppointmentCreate(View):
         appointment = Appointment.objects.create(fname=fname, lname=lname, email=email, number=number, date=date, service=service, time=time)
         appointment.save()
         return HttpResponseRedirect('confirmation')
+
+
+class ConfirmationPage(TemplateView):
+    template_name = "confirmation.html"
+    model = Appointment
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["appointments"] = Appointment.objects.all()
+        return context
+
 
 class ContactPage(View):
     def get(self, request):

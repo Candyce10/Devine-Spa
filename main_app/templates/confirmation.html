@@ -1,17 +1,18 @@
 {% extends 'base.html' %}{% block content %}
 {% block title %} Confirmation{% endblock %}
 
-
+<div class="appt">
 <h1>Appointment Received</h1>
 {% for appointment in appointments %}
 
 {% if forloop.last %}
-<h3>Thank you, {{appointment.fname}}!</h3>
-<p>Your <b>{{appointment.service}}</b> session is scheduled for <b>{{appointment.date}}</b>. Please arrive 15 minutes before your appointment. If you need to reschedule, please call us at (555)-MASSAGE. See you soon!</p>
+<h3>Thank you, {{appointment.fname}} confirmation number # 0467{{appointment.pk}}!</h3>
+<p>Your <b>{{appointment.service}}</b> session is scheduled on <b>{{appointment.date}}</b> at <b>{{appointment.time}}</b>. Please arrive 15 minutes before your appointment. If you need to reschedule, please call us at (555)-MASSAGE. See you soon!</p>
 
 {% endif %}
 {% endfor %}
 
 
 <a href="/">continue browsing</a>
+</div>
 {% endblock %}
