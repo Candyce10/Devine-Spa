@@ -69,12 +69,14 @@ class AppointmentPage(TemplateView):
 
 class AppointmentCreate(View):
     def post(self, request):
-        name = request.POST.get("name")
+        fname = request.POST.get("fname")
+        lname = request.POST.get("lname")
         email = request.POST.get("email")
         service = request.POST.get("service")
         number = request.POST.get("number")
         date = request.POST.get("date")
-        appointment = Appointment.objects.create(name=name, email=email, number=number, date=date, service=service)
+        time = request.POST.get("time")
+        appointment = Appointment.objects.create(fname=fname, lname=lname, email=email, number=number, date=date, service=service, time=time)
         appointment.save()
         return HttpResponseRedirect('confirmation')
 

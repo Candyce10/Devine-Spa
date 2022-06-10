@@ -39,11 +39,13 @@ SERVICE_CHOICES =(
 )
   
 class Appointment(models.Model):
-    name = models.CharField(max_length=100)
+    fname = models.CharField(max_length=100)
+    lname = models.CharField(max_length=100)
     service = models.CharField(max_length=34, choices=SERVICE_CHOICES)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
     date = models.DateField()
+    time = models.CharField(max_length=9)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,1 @@
+web: gunicorn divine_spa_project.wsgi
