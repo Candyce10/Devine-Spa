@@ -1,10 +1,12 @@
 {% extends 'base.html' %}{% block content %}
+{% block title %} Confirmation{% endblock %}
+
 
 <h1>Appointment Received</h1>
 {% for appointment in appointments %}
 
 {% if forloop.last %}
-<h3>Thank you {{appointment.name}}!</h3>
+<h3>Thank you, {{appointment.name}}!</h3>
 <p>Your <b>{{appointment.service}}</b> session is scheduled for <b>{{appointment.date}}</b>. Please arrive 15 minutes before your appointment. If you need to reschedule, please call us at (555)-MASSAGE. See you soon!</p>
 
 {% endif %}

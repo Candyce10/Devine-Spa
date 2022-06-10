@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.views import View
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Service, Review, Appointment, ServiceDetails
+from .models import Service, Review, Appointment, Contact
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
@@ -78,4 +78,28 @@ class AppointmentCreate(View):
         appointment.save()
         return HttpResponseRedirect('confirmation')
 
+class ContactPage(View):
+    def get(self, request):
+        return HttpResponse("Contact Us")
 
+class ContactPage(TemplateView):
+    template_name = "contact.html"
+    
+
+class ContactCreate(View):
+    def post(self, request):
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+        contact = Contact.objects.create(name=name, email=email, subject=subject, message=message)
+        contact.save()
+        return HttpResponseRedirect('submit_contact')
+
+
+class ContactSubmit(TemplateView):
+    template_name = "submit_contact.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["submit_contacts"] = Contact.objects.all()
+        return context

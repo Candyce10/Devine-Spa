@@ -1,2 +1,56 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% block content %}
+{% block title %} Contact Us{% endblock %}
+
+<h1>Send Us a Message</h1>
+
+<form action="{% url 'contact_create' %}" method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label>Name
+            <input
+                class="input"
+                type="text"
+                name="name"
+                required
+            />
+        </label>
+    </div>
+    <div>
+        <label>Email
+            <input
+                class="input"
+                type="text"
+                name="email"
+                required
+            />
+        </label>
+    </div>
+    <div>
+        <label>Subject
+            <input
+                class="input"
+                type="text"
+                name="subject"
+                required
+            />
+        </label>
+    </div>
+    <div>
+        <label>Message
+            <textarea
+                rows="4"
+                cols="50"
+                name="message"
+                required>
+           </textarea>
+        </label>
+    </div>
+<div>
+    <input type="submit" value="Confirm Appointment" />
+</div>
+</form>
+
+
+{% endblock %}
