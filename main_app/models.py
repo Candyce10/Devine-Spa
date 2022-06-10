@@ -43,7 +43,7 @@ class Appointment(models.Model):
     service = models.CharField(max_length=34, choices=SERVICE_CHOICES)
     email = models.CharField(max_length=150)
     number = models.CharField(max_length=15)
-    date = models.DateField()
+    date = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
