@@ -2,7 +2,7 @@
 {% block content %}
 {% block title %} Book Appointment{% endblock %}
 
-<h1>Request Appointment</h1>
+<h1>Make an Appointment</h1>
 
 <form action="{% url 'appointment_create' %}" method="POST">
     {% csrf_token %}
@@ -76,18 +76,26 @@
             />
         </label>
     </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="time" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Morning
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="time" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Afternoon
-        </label>
-      </div>
+    <div>
+        <label>Time
+            <select name = "time" size="1">
+                <option value="9:30am">9:30am</option>
+                <option value="10:00am">10:00am</option>
+                <option value="10:30am">10:30am</option>
+                <option value="11:00am">11:00am</option>
+                <option value="11:30am">11:30am</option>
+                <option value="12:00pm">12:00pm</option>
+                <option value="12:30pm">12:30pm</option>
+                <option value="1:00pm">1:00pm</option>
+                <option value="1:30pm">1:30pm</option>
+                <option value="2:00pm">2:00pm</option>
+                <option value="2:30pm">2:30pm</option>
+                <option value="3:00pm">3:00pm</option>
+                <option value="3:30pm">3:30pm</option>
+                <option value="4:00pm">4:00pm</option>
+        </select>
+    </div>
+   
     <div>
         <input type="submit" value="Confirm Appointment" />
     </div>
