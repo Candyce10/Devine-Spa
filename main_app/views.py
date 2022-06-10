@@ -94,7 +94,7 @@ class ContactCreate(View):
         message = request.POST.get("message")
         contact = Contact.objects.create(name=name, email=email, subject=subject, message=message)
         contact.save()
-        return HttpResponseRedirect('submit_contact')
+        return HttpResponseRedirect('submitted')
 
 
 class ContactSubmit(TemplateView):

@@ -11,7 +11,9 @@ urlpatterns = [
     path('book_appointment/', views.AppointmentPage.as_view(), name="appointment"),
     path('book_appointment/new', views.AppointmentCreate.as_view(), name="appointment_create"),
     path('book_appointment/confirmation/', views.ConfirmationPage.as_view(), name="confirmation"),
+
+
     path('contact_us/', views.ContactPage.as_view(), name="contact"),
     path('contact_us/new', views.ContactCreate.as_view(), name="contact_create"),
-    path('contact_us/submitted/', views.ContactSubmit.as_view(), name="submit_contact"),
+    path('contact_us/submitted/', views.ContactSubmit.as_view(), name="submitted"),
 ]
