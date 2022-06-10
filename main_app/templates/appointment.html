@@ -8,11 +8,21 @@
     {% csrf_token %}
 
     <div>
-        <label>Name
+        <label>First Name
             <input
                 class="input"
                 type="text"
-                name="name"
+                name="fname"
+                required
+            />
+        </label>
+    </div>
+    <div>
+        <label>Last Name
+            <input
+                class="input"
+                type="text"
+                name="lname"
                 required
             />
         </label>
@@ -67,15 +77,15 @@
         </label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <input class="form-check-input" type="radio" name="time" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
-          Default radio
+          Morning
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <input class="form-check-input" type="radio" name="time" id="flexRadioDefault2" checked>
         <label class="form-check-label" for="flexRadioDefault2">
-          Default checked radio
+          Afternoon
         </label>
       </div>
     <div>
