@@ -4,7 +4,8 @@
 {% for appointment in appointments %}
 
 {% if forloop.last %}
-<h1>Thank you {{appointment.name}}!!</h1>
+<h3>Thank you {{appointment.name}}!</h3>
+<p>Your <b>{{appointment.service}}</b> session is scheduled for <b>{{appointment.date}}</b>. Please arrive 15 minutes before your appointment. If you need to reschedule, please call us at (555)-MASSAGE. See you soon!</p>
 
 {% endif %}
 {% endfor %}
