@@ -5,22 +5,20 @@
 {% block content %}
 
 <h1>Services</h1>
-<div class="gallery d-md-flex flex-wrap justify-content-center">
-
+<div class="card-deck"></div>
+<div class="gallery d-md-flex flex-wrap ">
     {% for service in services %}
-
-    <div class="test card m-2" style="width: 18rem;">
-        <img src="{{service.img}}" class="serviceimg card-img-top" alt="{{service.name}}">
+    <div class="card-deck">
+    <div class=" card m-2" style="width: 18rem;">
+        <img src="{{service.img}}" class="card-img-top" alt="{{service.name}}">
         <div class="card-body">
           <h5 class="card-title">{{service.name}}</h5>
           <p class="card-text">{{service.description}}</p>
-            <div class="detailbtn">
               <a href="{% url 'service_detail' service.pk %}"class="btn btn-primary">Details</a>
-            </div>
         </div>
       </div>
-
-      <br>
+    </div>
     {% endfor %}
+</div>
 </div>
 {% endblock %}
