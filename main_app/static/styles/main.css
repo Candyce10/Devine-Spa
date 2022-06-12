@@ -4,19 +4,15 @@
 
 body{
     margin: 0;
-    
+    padding-top: 1rem;
+    color: #5a5a5a;
 }
 
 
-.appt{
-    margin-top: 10vh;
-}
 
 .apptdiv input[type=text]{
     width: 27vw;
 }
-
-
 
 
 
@@ -98,4 +94,13 @@ body{
 
 .featurette-heading .fw-normal{
     font-weight: 400!important;
+}
+
+.marketing .col-lg-4{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.carousel {
+    margin-bottom: 4rem;
 }
