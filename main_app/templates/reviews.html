@@ -1,38 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Leave a Review</h1>
-<a class="button is-dark" href="{% url 'review_create' %}">Add Review</a>
-
+<h1>Reviews</h1>
+<a class="button is-dark" href="{% url 'review_create' %}">
+<button type="button" class="btn btn-primary">Add Review</button></a>
+<br>
 <div>
     {% for review in reviews %}
 
-    <div class="card">
-        <div class="card-body">
-    <figure>
-        <blockquote class="blockquote">
-          <p>"{{review.comment}}"</p>
-        </blockquote>
-        <figcaption class="blockquote-footer">
-            {{review.name}}; <cite title="Source Title">Rating: {{review.rating}}, Service: {{review.service}} </cite>
-        </figcaption>
-      </figure>
-        </div></div>
-
-
-
-
-<!-- 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{review.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Service: {{review.service}}</h6>
-            <p>Rating: {{review.rating}}</p>
-            <p class="card-text">Comment: </p>
+    <div class="card"style="width:50vw">
+        <div class="card-header" >
+            Rating: {{review.rating}}
         </div>
-      </div>
-      <br/>
-    {% endfor %}
-</div> -->
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>"{{review.comment}}"</p>
+            <footer class="blockquote-footer">{{review.name}};  <cite title="Source Title">Service: {{review.service}}</cite></footer>
+          </blockquote>
+        </div>
+    </div>  
 
+<br>
+    {% endfor %}
+
+</div>
 {% endblock %}

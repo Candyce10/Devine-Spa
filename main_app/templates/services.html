@@ -4,28 +4,34 @@
 
 {% block content %}
 
-<h1>Services</h1>
-<div class="card-deck"></div>
-<div class="gallery d-md-flex flex-wrap ">
-    {% for service in services %}
-    <div class="card-deck">
-    <div class=" card m-2" style="width: 18rem;">
-        <img src="{{service.img}}" class="card-img-top" alt="{{service.name}}">
-        <div class="card-body">
-          <h5 class="card-title">{{service.name}}</h5>
-          <p class="card-text">{{service.description}}</p>
-              <a href="{% url 'service_detail' service.pk %}"class="btn btn-primary">Details</a>
-        </div>
-      </div>
-    </div>
+<!--  -->
 
-    
+<main class="service-page">
+  <h1>Services</h1>
+  <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled, production-ready files with this barebones example featuring some basic HTML and helpful links. Download all our examples to get started.</p>
+
+
+  <hr class="col-3 col-md-2 mb-5">
+
+ 
+</main>
+<div class="d-flex justify-content-center">
 
 
 
-
-    {% endfor %}
+<div class="card mb-3 service-img">
+  <img src="https://www.bellamentesalonandspa.com/wp-content/uploads/2016/08/massage-banner.jpg" class="card-img-top " alt="..." >
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  </div>
 </div>
+
+
 </div>
+
+
+
 {% endblock %}
 
