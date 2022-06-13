@@ -9,14 +9,30 @@
 
     <div class="card">
         <div class="card-body">
+    <figure>
+        <blockquote class="blockquote">
+          <p>"{{review.comment}}"</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            {{review.name}}; <cite title="Source Title">Rating: {{review.rating}}, Service: {{review.service}} </cite>
+        </figcaption>
+      </figure>
+        </div></div>
+
+
+
+
+<!-- 
+    <div class="card">
+        <div class="card-body">
             <h5 class="card-title">{{review.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Service: {{review.service}}</h6>
             <p>Rating: {{review.rating}}</p>
-            <p class="card-text">Comment: {{review.comment}}</p>
+            <p class="card-text">Comment: </p>
         </div>
       </div>
       <br/>
     {% endfor %}
-</div>
+</div> -->
 
 {% endblock %}
