@@ -17,7 +17,9 @@ body{
     width: 27vw;
 }
 
-
+.nav-link:hover{
+    color:lightgrey
+}
 
 .bd-placeholder-img {
     font-size: 1.rem;
