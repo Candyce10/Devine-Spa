@@ -4,11 +4,13 @@
 
 body{
     margin: 0;
-    padding-top: 1rem;
     color: #5a5a5a;
+    margin-top: 4.5rem;
 }
 
-
+.navbar{
+    background-color: #faf0e6;
+}
 
 .apptdiv input[type=text]{
     width: 27vw;
