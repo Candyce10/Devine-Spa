@@ -10,7 +10,7 @@ Divine Spa provides professional Spa experiences. With this business app, users 
 ![image](https://user-images.githubusercontent.com/101231657/173368532-70272ef6-5f4c-400a-802f-f417de53c155.png)
 
 **Technologies Used**
-Python, Django, HTML, CSS, Bootstrap
+Python, Django, PostgreSQL HTML, CSS, Bootstrap
 
 **Getting Started/Installation Instructions:**
 Users may start by freely browsing the page and exploring any services the page offers!
