@@ -122,9 +122,10 @@ p{
     p.carousel-btn{
         display:none;
     }
-    .service-card{
-        width: 10rem
+    p.carousel-p{
+       display: none;
     }
+    
 }
 
 
