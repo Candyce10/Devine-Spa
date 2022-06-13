@@ -4,107 +4,76 @@
 {% block content %}
 <h1>Make an Appointment</h1>
 
-<div class="apptdiv">
-<form action="{% url 'appointment_create' %}" method="POST">
-    {% csrf_token %}
 
-    <div>
-        <label>First Name </label>
-        <br/>
-            <input
-                class="input"
-                type="text"
-                name="fname"
-                required
-            />
-    </div>
-    <div>
-        <label>Last Name</label>
-        <br/>
-            <input
-                class="input"
-                type="text"
-                name="lname"
-                required
-            />
-    </div>
-    <div>
-        <label>Service
-            <br/>
-            <select name = "service" size="1">
-                <option value="Perfect Days">Perfect Days</option>
-                <option value="Royal Stone">Royal Stone</option>
-                <option value="Classic Treatment">Classic Treatment</option>
-                <option value="Growth Factor Facial">Growth Factor Facial</option>
-                <option value="vitamin C">Vitamin C</option>
-                <option value="Diamond Brightening facial">Diamond Brightening Facial</option>
-                <option value="Power Glo Facial">Power Glo Facial</option>
-                <option value="Pink Himalayan Salt Stone Massage">Pink Himalayan Salt Stone Massage</option>
-                <option value="Prenatal Massage">Prenatal Massage</option>
-                <option value="Reflexology">Reflexology</option>
-                <option value="Deep Tissue assage">Deep Tissue Massage</option>
-        </select>
-    </div>
-    <div>
-        <label>Email</label>
-        <br/>
-            <input
-                class="input"
-                type="text"
-                name="email"
-                required
-            />
-    </div>
-    <div>
-        <label>Phone Number </label>
-        <br/>
-            <input
-                class="input"
-                type="text"
-                name="number"
-                required
-            />
-       <br/>
-    </div>
-    <div>
-        <label>Date</label>
-        <br/>
-            <input
-                id="datefield"
-                class="input"
-                type="date"
-                name="date"
-                min="2050-01-01"
-                onfocus="this.min=new Date().toISOString().split('T')[0]"
-                required
-            />
-    </div>
-    <div>
-        <label>Time
-            <br/>
-            <select name = "time" size="1">
-                <option value="9:30am">9:30am</option>
-                <option value="10:00am">10:00am</option>
-                <option value="10:30am">10:30am</option>
-                <option value="11:00am">11:00am</option>
-                <option value="11:30am">11:30am</option>
-                <option value="12:00pm">12:00pm</option>
-                <option value="12:30pm">12:30pm</option>
-                <option value="1:00pm">1:00pm</option>
-                <option value="1:30pm">1:30pm</option>
-                <option value="2:00pm">2:00pm</option>
-                <option value="2:30pm">2:30pm</option>
-                <option value="3:00pm">3:00pm</option>
-                <option value="3:30pm">3:30pm</option>
-                <option value="4:00pm">4:00pm</option>
-        </select>
-    </div>
-   
-    <div>
-        <input type="submit" value="Confirm Appointment" />
-    </div>
 
-</form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 border p-4 shadow bg-light">
+            <div class="col-12">
+                <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Appointment form</h3>
+            </div>
+            <form action="{% url 'appointment_create' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="First Name" name="fname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Last Name" name="lname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" class="form-control" placeholder="Phone Number" name="number" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" placeholder="Enter Date" name="date"  min="2050-01-01" onfocus="this.min=new Date().toISOString().split('T')[0]" required>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="time" class="form-select">
+                            <option value="9:30am">9:30am</option>
+                            <option value="10:00am">10:00am</option>
+                            <option value="10:30am">10:30am</option>
+                            <option value="11:00am">11:00am</option>
+                            <option value="11:30am">11:30am</option>
+                            <option value="12:00pm">12:00pm</option>
+                            <option value="12:30pm">12:30pm</option>
+                            <option value="1:00pm">1:00pm</option>
+                            <option value="1:30pm">1:30pm</option>
+                            <option value="2:00pm">2:00pm</option>
+                            <option value="2:30pm">2:30pm</option>
+                            <option value="3:00pm">3:00pm</option>
+                            <option value="3:30pm">3:30pm</option>
+                            <option value="4:00pm">4:00pm</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <select name="service" class="form-select" required>
+                            <option selected>Service</option>
+                            <option value="Perfect Days">Perfect Days</option>
+                            <option value="Royal Stone">Royal Stone</option>
+                            <option value="Classic Treatment">Classic Treatment</option>
+                            <option value="Growth Factor Facial">Growth Factor Facial</option>
+                            <option value="vitamin C">Vitamin C</option>
+                            <option value="Diamond Brightening facial">Diamond Brightening Facial</option>
+                            <option value="Power Glo Facial">Power Glo Facial</option>
+                            <option value="Pink Himalayan Salt Stone Massage">Pink Himalayan Salt Stone Massage</option>
+                            <option value="Prenatal Massage">Prenatal Massage</option>
+                            <option value="Reflexology">Reflexology</option>
+                            <option value="Deep Tissue assage">Deep Tissue Massage</option>
+                        </select>
+                    </div>
+                   
+                    <div class="col-12 mt-5">                        
+                        <button type="submit" class="btn btn-primary float-end">Book Appointment</button>
+                        <button type="button" class="btn btn-outline-secondary float-end me-2">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 
