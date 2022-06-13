@@ -87,9 +87,7 @@ body{
     .featurette-heading{
         font-size: 40px;
     }
-    .service-card{
-        width: 10rem
-    }
+    
 }
 
 
@@ -135,5 +133,5 @@ form.review-form{
 }
 
 .service-img{
-    width:22rem
+    width:27rem
 }
