@@ -5,7 +5,7 @@
 body{
     margin: 0;
     color: #5a5a5a;
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
 }
 
 .navbar{
@@ -114,10 +114,14 @@ p{
 @media (max-width: 480px) {
 
 
-    p.carousel-p{
+    /* p.carousel-p{
         display: none;
-    }
+    } */
     p.carousel-btn{
         display:none;
     }
+}
+
+form{
+    width: 50vw;
 }
