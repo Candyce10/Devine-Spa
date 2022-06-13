@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<br>
 <h1>Reviews</h1>
+<br>
 <a class="button is-dark" href="{% url 'review_create' %}">
 <button type="button" class="btn btn-primary">Add Review</button></a>
+<br>
 <br>
 <div>
     {% for review in reviews %}
