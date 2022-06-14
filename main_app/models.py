@@ -50,7 +50,7 @@ class Appointment(models.Model):
     time = models.CharField(max_length=9)
 
     def __str__(self):
-        return self.fname, self.pk
+        return self.fname
 
      
 class Review(models.Model):
