@@ -6,7 +6,6 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
 from .forms import ReviewForm
-import urllib
 
 class Home(View):
     def get(self, request):
